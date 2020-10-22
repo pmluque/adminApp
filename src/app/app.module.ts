@@ -3,10 +3,31 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { PortalComponent } from './dash/portal/portal.component';
+import { FeatureComponent } from './feature/feature.component';
+import { EntryRefundComponent } from './feature/entry-refund/entry-refund.component';
+import { StatsComponent } from './feature/stats/stats.component';
+import { DetailComponent } from './feature/detail/detail.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    PortalComponent,
+    FeatureComponent,
+    EntryRefundComponent,
+    StatsComponent,
+    DetailComponent,
+    FooterComponent,
+    NavbarComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
