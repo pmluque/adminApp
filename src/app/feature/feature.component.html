@@ -1,1 +1,52 @@
-<p>feature works!</p>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Agregar Ingreso / Egreso</h4>
+                <p class="card-description">
+                    Especifique el monto y el tipo
+                </p>
+
+                <form [formGroup]="formGroup" (ngSubmit)="transaction()">
+
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="text" class="form-control" placeholder="Descripción" formControlName="desc">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Monto</label>
+                        <input type="number" class="form-control" placeholder="Monto" formControlName="amount">
+                        <p>
+                            Debe de ser un monto positivo
+                        </p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo</label>
+                        <br>
+                        <button *ngIf="type === 'I'" (click)="type= 'R'" type="button" class="btn btn-primary btn-block">Ingreso</button>
+                        <button *ngIf="type === 'R'" (click)="type= 'I'" type="button" class="btn btn-warning btn-block">Reintegro</button>
+                    </div>
+
+                    <hr>
+                    <button type="submit" class="btn btn-success mr-2" [disabled]="formGroup.invalid">
+                      <i *ngIf="!loading"  class="fa fa-save"></i>
+                      <i *ngIf="loading"  class="fa fa-spin fa-sync"></i>
+                      Agregar
+                    </button>
+
+                    <!--
+            <button disabled class="btn btn-success mr-2">
+              <i class="fa fa-spin fa-sync"></i>
+              Espere por favor...
+            </button>
+          -->
+
+                    <button type="reset" class="btn btn-light">Cancelar</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

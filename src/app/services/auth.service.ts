@@ -11,11 +11,21 @@ import { AppState } from '../app.reducer';
 import * as authActions from '../auth/auth.actions';
 // 8.11  Control suscripción
 import { Subscription } from 'rxjs';
+// 9.8.7
+import * as transActions from '../feature/transaction.actions';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  // 9.4 - propiedad para tener accesible el usuario y poder manejarlos en otros servicios
+  private _user: User;
+  // ----- La sintaxis es si es privada, ponemos un _ y creamos los métodos que solo permiten leer
+  get user(): User {
+    return {...this._user};   // para evitar mutaciones usamos el operador ...
+  }
 
   // 8.11  Control suscripción
   authSubscription: Subscription;
@@ -84,11 +94,17 @@ export class AuthService {
                            // conversión entre firestoreUser y userModel
                            // usar un método estático en el modelo específico para la conversion
                            const user = User.fromFirestore( firestoreUser );
+                           // 9.4 - Asignar propiedad usuario de firestoreUser | y no olvidar limpiarlo
+                           this._user = user;
+                           // -----------------------------
                            this.store.dispatch( authActions.setUser( {user} ) );
                          } );
            console.log('SUBSCRIBE del authSubscription a FIRESTORE !' );
          } else {
            // NO existe el usuario
+           // 9.4 - Asignar propiedad usuario de firestoreUser | y no olvidar limpiarlo
+           this._user = null;
+
            // 8.11
            if ( this.authSubscription) {
              this.authSubscription.unsubscribe();
@@ -97,6 +113,8 @@ export class AuthService {
 
            // 8.10
            this.store.dispatch( authActions.nullUser() );
+           // 9.8.7
+           this.store.dispatch( transActions.unsetItems() );
          }
 
     });
@@ -110,4 +128,5 @@ export class AuthService {
        map( fuser => fuser != null )
     );
   }
+
 }

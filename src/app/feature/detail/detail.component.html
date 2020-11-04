@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-body">
+            <div class="card-body" class="table-responsive">
                 <h4 class="card-title">Detalle de ingreso egreso</h4>
 
                 <table class="table">
@@ -15,11 +15,12 @@
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <td>Descripción</td>
-                            <td>Monto</td>
-                            <td>Tipo</td>
-                            <td>acciones</td>
+                        <!-- 9.8.3 -->
+                        <tr *ngFor="let item of transactionModel | transactionOrder">
+                            <td style="white-space: normal; word-break: break-all !important;">{{ item.desc }}</td>
+                            <td>{{ item.amount | currency:'EUR':true }}</td>
+                            <td [class.text-success]="item.type === 'I'" [class.text-danger]="item.type === 'R'">{{ item.type }}</td>
+                            <td><button type="button" class="btn btn-danger" (click)="delete( item.uid )"><i class="fa fa-trash"></i>Borrar</button></td>
                         </tr>
                     </tbody>
 

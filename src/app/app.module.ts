@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 // 23 FOMRULARIOS CONFIGURAR
 import { ReactiveFormsModule } from '@angular/forms';
 // 24 FIREBASE CONFIGURAR
@@ -22,14 +23,15 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { PortalComponent } from './dash/portal/portal.component';
 import { FeatureComponent } from './feature/feature.component';
-import { EntryRefundComponent } from './feature/entry-refund/entry-refund.component';
 import { StatsComponent } from './feature/stats/stats.component';
 import { DetailComponent } from './feature/detail/detail.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { TransactionOrderPipe } from './pipes/transaction-order.pipe';
 
-
+// 9.12.1 | 9.12.2
+import { ChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -39,14 +41,15 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     RegisterComponent,
     PortalComponent,
     FeatureComponent,
-    EntryRefundComponent,
     StatsComponent,
     DetailComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    TransactionOrderPipe
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
