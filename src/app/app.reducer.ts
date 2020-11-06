@@ -7,11 +7,11 @@ import * as trans from './feature/transaction.reducer';
 export interface AppState {
    ui: ui.State;                     // Referencia a la inferfaz que está en el ui.reducer
    user: auth.State;
-   items: trans.State;
+   // 10.5.2 items: trans.State;
 }
 
 export const appReducers: ActionReducerMap<AppState> = {
    ui: ui.uiReducer ,
-   user: auth.authReducer,
-   items: trans.transactionReducer
+   user: auth.authReducer
+   // 10.5.2 items: trans.transactionReducer
 }

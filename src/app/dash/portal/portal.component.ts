@@ -7,6 +7,7 @@ import { Subscription } from 'rxjs';
 // 9.7.5
 import { TransactionService } from '../../services/transaction.service';
 import { setItems } from '../../feature/transaction.actions';
+import { AppStateWithItems } from 'src/app/feature/transaction.reducer';
 
 @Component({
   selector: 'app-portal',
@@ -23,7 +24,7 @@ export class PortalComponent implements OnInit , OnDestroy {
   itemsSubscription: Subscription;
 
   // 9.7.2
-  constructor( private store: Store<AppState> , private transService: TransactionService) { }
+  constructor( private store: Store<AppStateWithItems> , private transService: TransactionService) { }
 
   ngOnInit(): void {
     // 9.7.2
@@ -46,9 +47,9 @@ export class PortalComponent implements OnInit , OnDestroy {
 
   ngOnDestroy() {
     // 9.7.2
-    this.userSubscription.unsubscribe();
+    this.userSubscription?.unsubscribe();
     // 9.7.6
-    this.itemsSubscription.unsubscribe();
+    this.itemsSubscription?.unsubscribe();
   }
 
 }

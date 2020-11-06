@@ -2,11 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 // 9.8.1
 import { Transaction } from '../../models/transaction.model';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
+// import { AppState } from 'src/app/app.reducer';
 import { Subscription } from 'rxjs';
 // 9.9.2
 import { TransactionService } from '../../services/transaction.service';
 import Swal from 'sweetalert2';
+// 10.5.2
+import { AppStateWithItems } from '../transaction.reducer';
 
 @Component({
   selector: 'app-detail',
@@ -21,7 +23,7 @@ export class DetailComponent implements OnInit , OnDestroy{
   transactionSubscription: Subscription;
 
   // 9.8.1 | 9.9.2
-  constructor( private store: Store<AppState> , private transService: TransactionService) { }
+  constructor( private store: Store<AppStateWithItems> , private transService: TransactionService) { }
 
   ngOnInit(): void {
     // 9.8.1

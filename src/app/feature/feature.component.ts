@@ -31,7 +31,9 @@ export class FeatureComponent implements OnInit, OnDestroy {
   formGroup: FormGroup;
 
   // 9.3 - formularios reactivos | 9.5 - Cargar el store (1)
-  constructor( private form: FormBuilder , private transService: TransactionService , private store: Store<AppState>) { }
+  constructor( private form: FormBuilder
+             , private transService: TransactionService
+             , private store: Store<AppState>) { }
 
 
   ngOnInit(): void {

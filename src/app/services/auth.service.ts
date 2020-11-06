@@ -107,7 +107,7 @@ export class AuthService {
 
            // 8.11
            if ( this.authSubscription) {
-             this.authSubscription.unsubscribe();
+             this.authSubscription.unsubscribe();    // Alternativa al IF: this.authSubscription?.unsubscribe();
              console.log('UNSUBSCRIBE del authSubscription a FIRESTORE !' );
             }
 

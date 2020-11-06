@@ -3,12 +3,15 @@ import { Component, OnInit } from '@angular/core';
 
 // 9.11.1
 import { Store } from '@ngrx/store';
-import { AppState } from '../../app.reducer';
+// 10.5.2 reemplazo
+// import { AppState } from '../../app.reducer';
 // 9.11.2
 import { Transaction } from '../../models/transaction.model';
 // 9.12.3
 import { ChartType } from 'chart.js';
 import { MultiDataSet, Label } from 'ng2-charts';
+// 10.5.2
+import { AppStateWithItems } from '../transaction.reducer';
 
 
 @Component({
@@ -32,7 +35,9 @@ public doughnutChartData: MultiDataSet = []; // sin data
 public doughnutChartType: ChartType = 'doughnut';
 
   // 9.11.1
-  constructor( private store: Store<AppState>) { }
+  // 10.5.2
+  // constructor( private store: Store<AppState>) { }
+  constructor( private store: Store<AppStateWithItems>) { }
 
   ngOnInit(): void {
     this.store.select('items')
