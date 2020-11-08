@@ -43,18 +43,12 @@ import { AuthModule } from './auth/auth.module';
 // import { ChartsModule } from 'ng2-charts';
 // import { DashRoutesModule } from './dash/dash-routes.module';
 
-// 12.4.4
-import { HttpClientModule } from '@angular/common/http';
-
-
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    // 12.4.4
-    HttpClientModule,
     AuthModule,
     BrowserModule,
     AppRoutingModule,

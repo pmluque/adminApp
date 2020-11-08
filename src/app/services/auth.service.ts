@@ -13,7 +13,8 @@ import * as authActions from '../auth/auth.actions';
 import { Subscription } from 'rxjs';
 // 9.8.7
 import * as transActions from '../feature/transaction.actions';
-
+// 12.5.5
+import * as teamActions from '../store/actions/index';
 
 @Injectable({
   providedIn: 'root'
@@ -115,6 +116,8 @@ export class AuthService {
            this.store.dispatch( authActions.nullUser() );
            // 9.8.7
            this.store.dispatch( transActions.unsetItems() );
+           // 12.5.5
+           this.store.dispatch( teamActions.unloadEmployees() );
          }
 
     });
