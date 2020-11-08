@@ -39,12 +39,12 @@ import { AuthModule } from './auth/auth.module';
 // import { NavbarComponent } from './shared/navbar/navbar.component';
 // import { SidebarComponent } from './shared/sidebar/sidebar.component';
 
-
-
 // 9.12.1 | 9.12.2
 // import { ChartsModule } from 'ng2-charts';
 // import { DashRoutesModule } from './dash/dash-routes.module';
 
+// 12.4.4
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -53,6 +53,8 @@ import { AuthModule } from './auth/auth.module';
     AppComponent
   ],
   imports: [
+    // 12.4.4
+    HttpClientModule,
     AuthModule,
     BrowserModule,
     AppRoutingModule,

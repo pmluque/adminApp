@@ -1,11 +1,5 @@
 {
-  "targets": {
-    "adminapp-7d3e3": {
-      "hosting": {
-        "adminApp": [
-          "adminapp-7d3e3"
-        ]
-      }
-    }
+  "projects": {
+    "default": "adminapp-7d3e3"
   }
 }

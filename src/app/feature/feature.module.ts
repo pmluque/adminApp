@@ -18,6 +18,8 @@ import { DashRoutesModule } from '../dash/dash-routes.module';
 // 10.5
 import { StoreModule } from '@ngrx/store';
 import { transactionReducer } from './transaction.reducer';
+// 11.2
+import { UsersModule } from '../users/users.module';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { transactionReducer } from './transaction.reducer';
     ReactiveFormsModule,
     ChartsModule,
     SharedModule,
-    DashRoutesModule
+    DashRoutesModule,
+    UsersModule
   ]
 })
 export class FeatureModule { }

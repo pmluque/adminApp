@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Effects</a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/list" routerLinkActive="active">Lista</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/user" routerLinkActive="active">Usuario</a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <input #txtSearch (keyup.enter)="actionSearch( txtSearch.value )" class="form-control mr-sm-2" type="search" placeholder="ID usuario?" aria-label="Search">
+            <button (click)="actionSearch( txtSearch.value )" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button>
+        </div>
+    </div>
+</nav>

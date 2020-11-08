@@ -5,6 +5,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
+// 12.2
+import { NavfinderComponent } from './navfinder/navfinder.component';
+
 
 
 
@@ -12,7 +15,8 @@ import { RouterModule } from '@angular/router';
   declarations: [
     NavbarComponent ,
     SidebarComponent ,
-    FooterComponent
+    FooterComponent,
+    NavfinderComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +25,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     NavbarComponent ,
     SidebarComponent ,
-    FooterComponent
+    FooterComponent,
+    NavfinderComponent
   ]
 })
 export class SharedModule { }
