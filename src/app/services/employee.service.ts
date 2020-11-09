@@ -13,7 +13,7 @@ export class EmployeeService {
   constructor( private http: HttpClient ) { }
 
   // 12.4.3
-  getEmployee() {
+  getEmployees() {
     /*
     return this.http.get(`${this.URL}/users?per_page=6`)
                     .pipe( map( result => {
@@ -23,4 +23,12 @@ export class EmployeeService {
    return this.http.get(`${this.URL}/users?per_page=6`)
                    .pipe( map( result => result['data']  ));
   }
+
+  // 12.4.3
+  getEmployeeById( id: string ) {
+
+   return this.http.get(`${this.URL}/users/${ id }`)
+                   .pipe( map( result => result['data']  ));
+  }
+
 }

@@ -6,4 +6,4 @@ import { User } from '../models/user.model';
 // Acción setUser que recibe argumento: objeto usuario
 export const setUser = createAction('[Auth Component] setUser' , props< {user: User}>() );
 // Acción retirar usuario
-export const nullUser = createAction('[Auth Component] unUser' );
+export const unsetUser = createAction('[Auth Component] unsetUser' );

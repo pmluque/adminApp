@@ -8,7 +8,7 @@ export const loadEmployeesSuccess = createAction('[Employees] load success',
                                                  props<{ employees: Employee[]}>()
                                                  );
 // Acción de final de carga erronea : recibe un payload
-export const loadEmployeesError = createAction('[Employees] load success',
+export const loadEmployeesError = createAction('[Employees] load error',
                                                  props<{ payload: any}>()
                                                  );
 // Acción de descargar

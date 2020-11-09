@@ -42,6 +42,8 @@ import { AuthModule } from './auth/auth.module';
 // 9.12.1 | 9.12.2
 // import { ChartsModule } from 'ng2-charts';
 // import { DashRoutesModule } from './dash/dash-routes.module';
+// 12.
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -49,6 +51,7 @@ import { AuthModule } from './auth/auth.module';
     AppComponent
   ],
   imports: [
+    HttpClientModule,
     AuthModule,
     BrowserModule,
     AppRoutingModule,

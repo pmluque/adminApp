@@ -1,6 +1,6 @@
 // ngrx-reducer
 import { createReducer, on } from '@ngrx/store';
-import { setUser , nullUser } from './auth.actions';
+import { setUser , unsetUser } from './auth.actions';
 // 8.10
 import { User } from '../models/user.model';
 
@@ -15,7 +15,7 @@ export const initialState: State = {
 const _authReducer = createReducer(initialState,
 
     on( setUser , (state , {user}) => ({ ...state, user: { ...user} })),
-    on( nullUser , (state ) => ({ ...state, user: null }))
+    on( unsetUser , (state ) => ({ ...state, user: null }))
 
 );
 

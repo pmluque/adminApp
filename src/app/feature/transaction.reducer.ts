@@ -5,12 +5,12 @@ import { setItems , unsetItems } from './transaction.actions';
 import { Transaction } from '../models/transaction.model';
 import { AppState } from '../app.reducer';
 
-export interface State {
-    items: Transaction[];
+export interface AppStateWithItems extends AppState{
+  items: State;
 }
 
-export interface AppStateWithItems extends AppState{
-    items: State;
+export interface State {
+    items: Transaction[];
 }
 
 export const initialState: State = {

@@ -15,3 +15,4 @@ export const appReducers: ActionReducerMap<AppState> = {
    user: auth.authReducer
    // 10.5.2 items: trans.transactionReducer
 }
+// *** los datas específicos estarán en los módulos específicos ***

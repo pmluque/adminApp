@@ -1,11 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
-import { loadEmployees, loadEmployeesError, loadEmployeesSuccess, unloadEmployees } from '../actions';
+import { loadEmployee, loadEmployeeError, loadEmployeeSuccess, unloadEmployee } from '../actions';
 import { Employee } from '../../models/employee.model';
 import { AppState } from '../../app.reducer';
 
-export interface AppStateWithTeam extends AppState{
-   team: {
-     employees: Employee[];
+export interface AppStateWithMember extends AppState{
+   member: {
+     id: string;
+     employee: Employee;
      loaded: boolean;
      loading: boolean;
      error: any;
@@ -13,36 +14,38 @@ export interface AppStateWithTeam extends AppState{
 }
 
 export interface State {
-        employees: Employee[];
+        id: string;
+        employee: Employee;
         loaded: boolean;
         loading: boolean;
         error: any;
 }
 
 export const initialState: State = {
-        employees: [],
+        id: null,
+        employee: null,
         loaded: false,
         loading: false,
         error: null
 };
 
 
-const _employeesReducer = createReducer(initialState,
+const _employeeReducer = createReducer(initialState,
 
-    on( loadEmployees, state => ({ ...state, loading: true })),
-    on( loadEmployeesSuccess, (state , {employees} ) => ({ ...state, loading: false, loaded: true  , employees: [ ...employees] })),
-    on( loadEmployeesError  , (state , {payload} )   => ({ ...state
+    on( loadEmployee, (state , {id}) => ({ ...state, loading: true, id})),
+    on( loadEmployeeSuccess, (state , {employee} ) => ({ ...state, loading: false, loaded: true  , employee: { ...employee} })),
+    on( loadEmployeeError  , (state , {payload} )   => ({ ...state
                                                           , loading: false
                                                           , loaded: false
                                                           , error: { url: payload.url
                                                                    , name: payload.name
                                                                    , message: payload.message
                                                           } })),
-    on( unloadEmployees , state => ({...state,  employees: [] , loaded: false , loading:false, error: null }))
+    on( unloadEmployee , state => ({...state, id: null , employee: null , loaded: false , loading: false, error: null }))
 );
 // 12.5.12
 // on( loadEmployeesError  , (state , {payload} )   => ({ ...state, loading: false, loaded: false , error: payload })),
 
-export function employeesReducer(state, action) {
-    return _employeesReducer(state, action);
+export function employeeReducer(state, action) {
+    return _employeeReducer(state, action);
 }

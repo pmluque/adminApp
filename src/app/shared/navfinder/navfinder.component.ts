@@ -16,10 +16,10 @@ export class NavfinderComponent implements OnInit {
 
   // Acción de la caja buscar
   actionSearch( id: string ) {
+    console.log('NavfinderComponent.actionSearch' , id);
     if ( id === null ) { return; }
 
-    this.router.navigate(['/user', id ]);
-
+    this.router.navigate(['/employee', id ]);
   }
 
 }
