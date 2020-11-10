@@ -11,8 +11,8 @@ const routes: Routes = [
   { path: 'login' , component: LoginComponent},
   { path: 'register' , component: RegisterComponent},
  // { path: '' , component: PortalComponent , children: portalRoutes , canActivate: [ AuthGuard ]},    // 31
-  { path: '', canLoad: [AuthGuard] , loadChildren: () => import('./feature/feature.module').then( m => m.FeatureModule ) } ,
-  { path: '**' , redirectTo: ''}
+  { path: 'dashboard', canLoad: [AuthGuard] , loadChildren: () => import('./feature/feature.module').then( m => m.FeatureModule ) } ,
+  { path: '**' , redirectTo: 'dashboard'}
 ];
 
 @NgModule({

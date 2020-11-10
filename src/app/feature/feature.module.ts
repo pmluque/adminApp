@@ -21,6 +21,9 @@ import { transactionReducer } from './transaction.reducer';
 // 11.2
 import { UsersModule } from '../users/users.module';
 
+// 15.1
+import { PagesModule } from '../pages/pages.module';
+
 @NgModule({
   declarations: [
     PortalComponent ,
@@ -36,7 +39,8 @@ import { UsersModule } from '../users/users.module';
     ChartsModule,
     SharedModule,
     DashRoutesModule,
-    UsersModule
+    UsersModule,
+    PagesModule
   ]
 })
 export class FeatureModule { }
