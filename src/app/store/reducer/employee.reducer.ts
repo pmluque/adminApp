@@ -4,13 +4,7 @@ import { Employee } from '../../models/employee.model';
 import { AppState } from '../../app.reducer';
 
 export interface AppStateWithMember extends AppState{
-   member: {
-     id: string;
-     employee: Employee;
-     loaded: boolean;
-     loading: boolean;
-     error: any;
-   };
+   member: State;
 }
 
 export interface State {

@@ -5,23 +5,24 @@ import { Setting } from '../../models/setting.model';
 export const loadSetting = createAction('[Setting] loading');
 // Acción de final de carga satisfactoria : recibe objeto setting
 export const loadSettingSuccess = createAction('[Setting] load success',
-                                                 props<{ setting: Setting}>()
+                                                 props<{setting: Setting}>()
                                                  );
 // Acción de final de carga erronea : recibe un payload
 export const loadSettingError = createAction('[Setting] load error',
-                                                 props<{ payload: any}>()
+                                                 props<{payload: any}>()
                                                  );
 
-//
 // Acción de inicio de carga
 export const saveSetting = createAction('[Setting] saving',
-                                         props<{ setting: Setting}>()
+                                         props<{backColor: string}>()
                                       );
 // Acción de final de carga satisfactoria : recibe objeto setting
-export const saveSettingSuccess = createAction('[Setting] save success')
+export const saveSettingSuccess = createAction('[Setting] save success',
+                                                props<{setting: Setting}>()
+                                                );
 // Acción de final de carga erronea : recibe un payload
 export const saveSettingError = createAction('[Setting] save error',
-                                                 props<{ payload: any}>()
+                                                 props<{payload: any}>()
                                                  );
 
 // Acción de descargar

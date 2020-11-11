@@ -17,6 +17,8 @@ import * as transActions from '../feature/transaction.actions';
 import * as teamActions from '../store/actions/employees.actions';
 // 12.5.14
 import * as memberActions from '../store/actions/employee.actions';
+//
+import * as settingActions from '../store/actions/settings.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -122,7 +124,8 @@ export class AuthService {
            this.store.dispatch( teamActions.unloadEmployees() );
            // 12.5.14
            this.store.dispatch( memberActions.unloadEmployee() );
-
+           // anular datos de setting
+           this.store.dispatch( settingActions.unloadSetting() );
          }
 
     });

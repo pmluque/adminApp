@@ -1,5 +1,5 @@
 export class Setting {
 
-  constructor(  public backColor: string ) {}
+  constructor(  public backColor: string = 'bg-dark' ) {}
 
 }

@@ -7,32 +7,30 @@ import { Setting } from '../../models/setting.model';
 import { AppState } from '../../app.reducer';
 
 export interface AppStateWithSetting extends AppState{
-   setting: {
-     backColor: string;
-   };
+    setting: State;
 }
 
 export interface State {
-    backColor: string;
+    setting: Setting;
 }
 
 export const initialState: State = {
-        backColor: ''
+    setting: new Setting('bg-dark')
 };
 
 
 const _settingReducer = createReducer(initialState,
 
     on( loadSetting, (state ) => ({ ...state})),
-    on( loadSettingSuccess, (state , {setting} ) => ({ ...state, setting: { ...setting} })),
+    on( loadSettingSuccess, (state , {setting} ) => ({ ...state, setting })),
     on( loadSettingError  , (state , {payload} )   => ({ ...state
                                                           , error: { url: payload.url
                                                                    , name: payload.name
                                                                    , message: payload.message
                                                           } })),
 
-     on( saveSetting, (state , {setting} ) => ({ ...state, setting: { ...setting}})),
-     on( saveSettingSuccess, (state ) => ({ ...state })),
+     on( saveSetting, (state , {backColor} ) => ({ ...state, setting: {backColor}})),
+     on( saveSettingSuccess, (state , {setting} ) => ({ ...state, setting  })),
      on( saveSettingError  , (state , {payload} )   => ({ ...state
                                                            , error: { url: payload.url
                                                                     , name: payload.name

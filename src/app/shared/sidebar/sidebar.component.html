@@ -47,11 +47,22 @@
             </a>
         </li>
 
+        <li class="nav-item" *ngFor="let item of menuItems">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="menu-icon fa fa-check"></i>
+                <span class="menu-title">{{ item.title }}</span>
+            </a>
+        </li>
+
+
         <li class="nav-item">
             <a class="nav-link cursor" routerLink="/login" (click)="logout()">
                 <i class="menu-icon fa fa-sign-out-alt"></i>
                 <span class="menu-title">Cerrar sesión</span>
             </a>
+            <ul aria-expanded="false" class="collapse">
+                <li><a href="">x</a></li>
+            </ul>
         </li>
 
     </ul>

@@ -10,6 +10,7 @@ import { AppState } from 'src/app/app.reducer';
 import { Subscription } from 'rxjs';
 // 9.13.1
 import { filter } from 'rxjs/operators';
+import { SettingsService } from '../../services/settings.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -18,12 +19,22 @@ import { filter } from 'rxjs/operators';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
 
+  // 14.3 - Menú dinámico
+  menuItems: any;
+
   // || 9.13.1
   username = '';
   userSubscription: Subscription;
 
-  // 25.b  || 9.12.3 || 9.13.1
-  constructor( private authService: AuthService , private router: Router, private store: Store<AppState> ) { }
+  // 25.b  || 9.12.3 || 9.13.1 || 14.3
+  constructor( private authService: AuthService
+             , private router: Router
+             , private store: Store<AppState>
+             , private settingsService: SettingsService ) {
+
+      // 14.3
+      this.menuItems = settingsService.menu;
+  }
 
   ngOnInit(): void {
     this.userSubscription = this.store.select('user')
